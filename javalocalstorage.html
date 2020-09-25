@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body><br>
+
+    <hr>
+    <h1>Welcome to Users input page</h1>
+    <p>please fill your details appropriately</p>
+    <form onsubmit="add()" class="forms">
+        <input class="input" type="text"  id="fullName" placeholder="full name"> <br>
+        <input class="input" type="email"  id="email" placeholder="email"> <br>
+        <input class="input" type="tel"  id="phone" placeholder="contact number"> <br>
+        <input class="input" type="file"  id="pics"> <br>
+        <input class="button" type="submit" value="Add User">
+        
+    </form>
+<hr>
+    <h1>Users</h1> 
+    <div id="users"></div>
+<script>
+        // get data from  local storage
+    users = JSON.parse(localStorage.getItem("now"))
+
+    
+        // Creates new array if none exists in local storage
+        if (users == null) {
+            users = []
+        }
+
+function add() {
+       newUser =
+       {    "fullName" : document.getElementById("fullName").value,
+                "email" : document.getElementById("email").value,
+                "phone" : document.getElementById("phone").value,
+                "pics" : "./1.jpg"
+                
+            }
+      
+       users.push(newUser)
+       localStorage.setItem("now", JSON.stringify(users))
+       display()
+    }
+
+    function Delete(i) {
+        con = confirm("Are you sure you want to delete " + users[i].fullName +"'s" + " details?")
+		if (con == true) {
+        users.splice(i, 1)
+        localStorage.setItem("now", JSON.stringify(users))
+        display()
+    }
+    }
+
+    function edit(i) {
+        updatedUser={
+            "fullName" : prompt("Enter FullName", users[i].fullName ),
+               "email" : prompt("Enter Email", users[i].email),
+               "phone" : prompt("Enter phone number", users[i].phone),
+               "picture" : prompt("input file address", users[i].pics)
+        }
+        users[i] = updatedUser
+        localStorage.setItem("now", JSON.stringify(users))
+        display()
+    }
+  
+function display(){
+
+cont = ''
+for(i=0; i<users.length; i++)
+{
+    cont += ` <div id="container">
+        
+        <img src="${users[i].pics}"> <br>
+        <strong>Full Name</strong> : ${users[i].fullName} <br>
+        <strong>Email</strong> : ${users[i].email} <br>
+        <strong>Contact</strong> : ${users[i].phone} <br>
+        <strong>Picture</strong> : ${users[i].pics} <br>
+        <button onclick="Delete(${i});">Delete User</button>
+         <button onclick="edit(${i});">Edit User</button>
+    </div> `
+}
+ document.getElementById("users").innerHTML = cont
+}
+
+display()   
+  
+</script>
+</body>
+</html>

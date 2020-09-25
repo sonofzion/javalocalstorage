@@ -1,0 +1,131 @@
+:root {
+    --extra-color: rgba(13, 110, 139, 0.75);
+    --ned-color: rgba(229, 148, 0 , 0.9);
+    --overlay-color: rgba(24, 39, 51 , 0.85);
+    --primary-color: #110E4C;
+    --secondary-color: #FAEE1C;
+    --light-color: #E7ECFF;
+   
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+/* styling the body */
+body {
+        background: var(--primary-color);
+}
+/* styling H1 */
+h1 {
+    color: var(--light-color);
+    text-align: center;
+}
+
+/* styling the paragraph */
+p {
+    text-align: center;
+    color: var(--light-color);
+}
+/* styling the forms area */
+.forms {
+   
+    width: 40%;
+    margin: auto;
+}
+
+.input {
+    background: var(--overlay-color);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: var(--ned-color);
+    color: var(--light-color);
+    font-size: 1.5rem;
+    }
+    .input:hover {
+        background: var(--light-color);
+        color: var(--overlay-color);
+    }
+/* button styling */
+    .button {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 10px 5px;
+        width: 33%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem;
+        margin: auto;
+        transition: all 1s ease;
+        
+    }
+    .button:hover {
+        background: #f4f4f4;
+        color: #333;
+        transition: all 1s ease;
+    }
+
+    button {
+        background: var(--primary-color);
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        margin-top: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 1s ease;
+    }
+
+    button:hover {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        transition: all 1s ease;
+    }
+
+    /* image styling */
+    img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+
+    /* styling display container */
+    #users {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: auto;
+    }
+    #container {
+           
+            background: rgba(245, 245, 245, 0.7);
+            padding: 2rem 0;
+            border-bottom: 1px solid rgb(0, 54, 134);
+            margin-bottom: 1rem;
+            border-radius: 20px;
+            width: 30%;
+             margin-right: 20px;
+            font-size: 1.5rem;;
+        
+    }
+
+    @media screen and (max-width: 768px) {
+        #users{
+            display: block;
+        }
+
+        #container {
+            width: 100%;
+        }
+        .button {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 5px;
+            width: 53%;
+           
+            font-size: 1.2rem;
+          
+    }
+
+    
+    
+    }
